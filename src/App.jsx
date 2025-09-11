@@ -169,7 +169,6 @@ function App() {
             <br></br>
             <div className="overlay">{data2} </div>
           </div>
-          <br></br>
           <div className="overlay"> <i> {data3} </i></div>
           <div className="overlay"> </div>
         </div>
