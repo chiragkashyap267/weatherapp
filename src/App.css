@@ -1,76 +1,147 @@
-.header{
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: rgb(85, 172, 191);
-border-radius: 10px;
-padding: 1rem;
-color: white;
-
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.container{
-  background-color: rgb(38, 102, 140);
-  border-radius: 10px;
+body {
+  background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Container */
+.container {
+  background: linear-gradient(145deg, #264b64, #1c3d55);
+  border-radius: 16px;
   width: 60vw;
   text-align: center;
-  margin: auto;
   padding: 2rem;
-  height: 80vh;
-  margin-top: 4rem;
-  box-shadow: 0px 5px 20px #171717;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.searcharea{
+.container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #58b1c9, #3a8aa1);
+  border-radius: 12px;
+  padding: 1rem;
+  color: white;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+  height: 4rem;
+  width: 4.5rem;
+  filter: brightness(0) invert(1);
+}
+
+.madeby {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+.searcharea {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
 
-.bodyimg{
+.searcharea input {
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  width: 200px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.searcharea input:focus {
+  box-shadow: 0 0 8px #58b1c9;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  background: #0077b6;
+  color: white;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #0096c7;
+  transform: scale(1.05);
+}
+
+/* Body Image */
+.bodyimg {
   height: 18rem;
   width: 48rem;
   object-fit: cover;
   margin-top: 1rem;
-  border-radius: 10px;
-  
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, opacity 0.6s ease;
 }
 
-.logo{
-  height: 4rem;
-  width: 4.5rem;
-  color: white;
-  filter: brightness(0) invert(1);
-  
+.bodyimg:hover {
+  transform: scale(1.01);
+  opacity: 0.95;
 }
 
-.madeby{
-  display: flex;
-  align-items: center;
-}
-
-
-
-
-.results{
+/* Results */
+.results {
   text-align: left;
   margin-top: 1rem;
-  margin-left: 3rem;
-  color: white;
+  margin-left: 2rem;
+  color: #f8f9fa;
 }
 
-.resultone{
- 
-  gap: 1rem
+.resultone {
+  gap: 1rem;
 }
 
+.overlay {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
 
+.overlay:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets */
 @media (max-width: 768px) {
   .container {
     width: 90vw;
     padding: 1rem;
-    margin-top: 1rem;
     height: auto;
   }
 
@@ -88,23 +159,23 @@ color: white;
   .bodyimg {
     height: auto;
     width: 100%;
-    border-radius: 8px;
   }
 
   .results {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .logo {
     height: 3rem;
     width: 3.5rem;
   }
 
-  .header p {
-    font-size: 0.9rem;
+  .madeby {
+    font-size: 0.8rem;
   }
 
   .searcharea input {
@@ -115,21 +186,16 @@ color: white;
     width: 100%;
   }
 
-  .overlay-text h1 {
-    font-size: 1.5rem;
+  .bodyimg {
+    height: 10rem;
+    width: 100%;
   }
 
-  .overlay-text p {
-    font-size: 1rem;
+  .results {
+    font-size: 0.9rem;
   }
-  .bodyimg{
-  height: 10rem;
-  width: 20rem;
-  object-fit: cover;
-  margin-top: 1rem;
-  border-radius: 10px;
-  transition: opacity 1s ease-in-out;
-  opacity: 1;
-  
-}
+
+  .overlay {
+    padding: 0.5rem;
+  }
 }
